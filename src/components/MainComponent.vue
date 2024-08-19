@@ -36,7 +36,7 @@
               <BreakdownComponent v-if="item === 'languages'" :metrics="metrics" :breakdownKey="'language'"/>
               <BreakdownComponent v-if="item === 'editors'" :metrics="metrics" :breakdownKey="'editor'"/>
               <CopilotChatViewer v-if="item === 'copilot chat'" :metrics="metrics" />
-                <SeatsAnalysisViewer v-if="item === 'seat analysis'" :seats="seats" />
+              <SeatsAnalysisViewer v-if="item === 'seat analysis'" :seats="seats" />
               <ApiResponse v-if="item === 'api response'" :metrics="metrics" :seats="seats" />
             </v-card>
           </v-window-item>
@@ -204,7 +204,7 @@ export default defineComponent({
       if (error.response && error.response.status) {
         switch (error.response.status) {
           case 401:
-            apiError.value = '401 Unauthorized access - check if your token in the .env file is correct.';
+            apiError.value = '401 Unauthorized access Login to GitHub using this link <a href="/login">Login</a>.';
             break;
           case 404:
             apiError.value = `404 Not Found - is the ${config.scope.type} '${config.scope.name}' correct?`;
